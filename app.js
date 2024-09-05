@@ -27,31 +27,30 @@ const winningCombos = [
   ]
   /*---------------------------- Variables (state) ----------------------------*/
 
-let board;
-let turn;
-let winner;
-let tie;
+  let board = ['', '', '', '', '', '', '', '', ''];
+  let turn = 'X';
+  let winner = false;
+  let tie = false;
 
 /*------------------------ Cached Element References ------------------------*/
 
 const squareEl = document.querySelectorAll('.sqr');
-console.log(squareEl);
+//console.log(squareEl);
 const messageEl = document.querySelector('#message');
-console.log(messageEl);
+//console.log(messageEl);
+const gameBoard = document.querySelector('.board');
+//console.log(gameBoard);
 
 /*-------------------------------- Functions --------------------------------*/
 const init = () => {
 console.log("Initialization game");
     // Add your initialization code here
-board = ['', '', '', '', '', '', '', '', ''];
-turn = 'X';
-winner = False;
-tie = False;
+    render();
   };
 
   //console.log(init);
 
-//console.log(render)
+
 const updateMessage = () => {
     console.log(updateMessage);
 }
@@ -70,8 +69,15 @@ const updateBoard = ((board) => {
 });
 
 
+const handleClick = (event) => {
+    console.log('click', event.target.id);
+
+};
+
+
 
 const render = () => {
+    console.log('this is rendering');
     updateBoard();
     updateMessage();
   };
@@ -81,5 +87,4 @@ const render = () => {
 
 /*----------------------------- Event Listeners -----------------------------*/
 
-
-
+gameBoard.addEventListener('click', handleClick);
