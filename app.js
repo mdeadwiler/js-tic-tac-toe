@@ -1,0 +1,88 @@
+//1) Define the required variables used to track the state of the game.
+
+//2) Store cached element references.
+
+//3) Upon loading, the game state should be initialized, and a function should 
+//   be called to render this game state.
+
+//4) The state of the game should be rendered to the user.
+
+//5) Define the required constants.
+
+//6) Handle a player clicking a square with a `handleClick` function.
+
+//7) Create Reset functionality.
+
+
+/*-------------------------------- Constants --------------------------------*/
+
+
+
+/*---------------------------- Variables (state) ----------------------------*/
+
+let board;
+let turn;
+let winner;
+let tie;
+
+/*------------------------ Cached Element References ------------------------*/
+
+const squareEl = document.querySelectorAll('.sqr');
+console.log(squareEl);
+const messageEl = document.querySelector('#message');
+console.log(messageEl);
+
+/*-------------------------------- Functions --------------------------------*/
+const init = () => {
+console.log("Initialization game");
+    // Add your initialization code here
+board = ['', '', '', '', '', '', '', '', ''];
+turn = 'X';
+winner = False;
+tie = False;
+  };
+
+  //console.log(init);
+
+//console.log(render)
+const updateMessage = () => {
+    console.log(updateMessage);
+}
+
+const updateBoard = ((board) => {
+   board.forEach((value, index) => {
+    const square = squareEl[index];
+    if  (value === 1) {
+        square.textContent = 'X';
+    } else if (value === -1) {
+        square.textContent = '0';
+    } else {
+        square.textContent = '';
+    }
+   });
+});
+
+const winningCombos = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [9, 10, 11],
+    [12, 13, 14],
+    [15, 16, 17],
+    [18, 19, 20],
+    [21, 22, 23],
+  ]
+  
+
+const render = () => {
+    updateBoard();
+    updateMessage();
+  };
+
+
+
+
+/*----------------------------- Event Listeners -----------------------------*/
+
+
+
