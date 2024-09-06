@@ -38,24 +38,57 @@ const squareEl = document.querySelectorAll('.sqr');
 //console.log(squareEl);
 const messageEl = document.querySelector('#message');
 //console.log(messageEl);
-const gameBoard = document.querySelector('.board');
+const boardEl = document.querySelector('.board');
 //console.log(gameBoard);
 
+
 /*-------------------------------- Functions --------------------------------*/
-const init = () => {
-console.log("Initialization game");
-    // Add your initialization code here
-    render();
-  };
-
-  //console.log(init);
-
-
-const updateMessage = () => {
-    console.log(updateMessage);
+function render() {
+    updateBoard();
+    updateMessage();
 }
 
-const updateBoard = ((board) => {
+const updateBoard = function() {
+    board.forEach((square, squareIndex) => {
+    squareEl[squareIndex].textContent = square;
+    });
+}
+
+const updateMessage = () => {
+    if (winner === false && tie === false) {
+        messageEl.textContent = turn;
+    } else if (!winner && tie) {
+        messageEl.textContent = 'tie!';
+    } else {
+        messageEl.textContent = `${turn} is the winner`
+    }
+}
+
+const init = () => {
+console.log("Initialization game");
+ board = ['X', 'O', 'X', 'O', 'X', '', '', '', ''];
+ turn = 'X';
+winner = false;
+ tie = false;
+ console.log(board);
+ console.log(turn);
+ console.log(winner);
+ console.log(tie);
+ //updateBoard();
+ //updateMessage();
+ render()
+}
+    window.onload = () => {
+        init();
+    }
+  
+
+ 
+
+
+
+
+/*const updateBoard = ((board) => {
    board.forEach((value, index) => {
     const square = squareEl[index];
     if  (value === 1) {
@@ -66,7 +99,7 @@ const updateBoard = ((board) => {
         square.textContent = '';
     }
    });
-});
+});*/
 
 
 const handleClick = (event) => {
@@ -76,15 +109,9 @@ const handleClick = (event) => {
 
 
 
-const render = () => {
-    console.log('this is rendering');
-    updateBoard();
-    updateMessage();
-  };
-
 
 
 
 /*----------------------------- Event Listeners -----------------------------*/
 
-gameBoard.addEventListener('click', handleClick);
+boardEl.addEventListener('click', handleClick);
