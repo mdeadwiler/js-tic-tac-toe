@@ -42,6 +42,7 @@ const boardEl = document.querySelector('.board');
 // console.log(boardEl);
 const resetBtEl = document.querySelector('#reset');
  //console.log(resetBtEl);
+ 
 
 /*-------------------------------- Functions --------------------------------*/
 function render() {
@@ -134,6 +135,7 @@ winner = false; //true;
  //updateMessage();
  render()
 }
+resetBtEl.addEventListener('click', init);
 
 
     window.onload = () => {
@@ -145,4 +147,3 @@ winner = false; //true;
 /*----------------------------- Event Listeners -----------------------------*/
 
 boardEl.addEventListener('click', handleClick);
-resetBtEl.addEventListener('click', handleClick);
